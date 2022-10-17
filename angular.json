@@ -98,7 +98,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mifosx-web-app:build"
+            "browserTarget": "mifosx-web-app:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -233,5 +234,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "208d36ec-e4cc-4fa3-aaa6-de2ff447ff75"
   }
 }
