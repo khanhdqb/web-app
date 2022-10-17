@@ -1,6 +1,6 @@
 /** Angular Imports */
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Dates } from 'app/core/utils/dates';
 
 /** Custom Services */
@@ -15,7 +15,7 @@ export class LoanProductDetailsStepComponent implements OnInit {
 
   @Input() loanProductsTemplate: any;
 
-  loanProductDetailsForm: FormGroup;
+  loanProductDetailsForm: UntypedFormGroup;
 
   fundData: any;
 
@@ -28,7 +28,7 @@ export class LoanProductDetailsStepComponent implements OnInit {
    * @param {SettingsService} settingsService Settings Service.
    */
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private dateUtils: Dates,
               private settingsService: SettingsService) {
     this.createLoanProductDetailsForm();

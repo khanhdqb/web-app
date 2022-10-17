@@ -1,6 +1,6 @@
 /** Angular Imports */
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormControl } from '@angular/forms';
 import { Dates } from 'app/core/utils/dates';
 
 /** Custom Services */
@@ -24,7 +24,7 @@ export class ClientGeneralStepComponent implements OnInit {
   /** Client Template */
   @Input() clientTemplate: any;
   /** Create Client Form */
-  createClientForm: FormGroup;
+  createClientForm: UntypedFormGroup;
 
   /** Office Options */
   officeOptions: any;
@@ -50,7 +50,7 @@ export class ClientGeneralStepComponent implements OnInit {
    * @param {Dates} dateUtils Date Utils
    * @param {SettingsService} settingsService Setting service
    */
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private dateUtils: Dates,
               private settingsService: SettingsService) {
     this.setClientForm();
@@ -108,14 +108,14 @@ export class ClientGeneralStepComponent implements OnInit {
       if (legalFormId === 1) {
         this.createClientForm.removeControl('fullname');
         this.createClientForm.removeControl('clientNonPersonDetails');
-        this.createClientForm.addControl('firstname', new FormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
-        this.createClientForm.addControl('middlename', new FormControl('', Validators.pattern('(^[A-z]).*')));
-        this.createClientForm.addControl('lastname', new FormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
+        this.createClientForm.addControl('firstname', new UntypedFormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
+        this.createClientForm.addControl('middlename', new UntypedFormControl('', Validators.pattern('(^[A-z]).*')));
+        this.createClientForm.addControl('lastname', new UntypedFormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
       } else {
         this.createClientForm.removeControl('firstname');
         this.createClientForm.removeControl('middlename');
         this.createClientForm.removeControl('lastname');
-        this.createClientForm.addControl('fullname', new FormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
+        this.createClientForm.addControl('fullname', new UntypedFormControl('', [Validators.required, Validators.pattern('(^[A-z]).*')]));
         this.createClientForm.addControl('clientNonPersonDetails', this.formBuilder.group({
           'constitutionId': ['', Validators.required],
           'incorpValidityTillDate': [''],
@@ -128,14 +128,14 @@ export class ClientGeneralStepComponent implements OnInit {
     this.createClientForm.get('legalFormId').patchValue(1);
     this.createClientForm.get('active').valueChanges.subscribe((active: boolean) => {
       if (active) {
-        this.createClientForm.addControl('activationDate', new FormControl('', Validators.required));
+        this.createClientForm.addControl('activationDate', new UntypedFormControl('', Validators.required));
       } else {
         this.createClientForm.removeControl('activationDate');
       }
     });
     this.createClientForm.get('addSavings').valueChanges.subscribe((active: boolean) => {
       if (active) {
-        this.createClientForm.addControl('savingsProductId', new FormControl('', Validators.required));
+        this.createClientForm.addControl('savingsProductId', new UntypedFormControl('', Validators.required));
       } else {
         this.createClientForm.removeControl('savingsProductId');
       }
