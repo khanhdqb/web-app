@@ -12,7 +12,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '' },
-    target: 'https://api.fintaz.com',
+    target: 'https://dev.fintaz.com',
     changeOrigin: true,
     secure: false
   }
