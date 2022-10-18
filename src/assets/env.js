@@ -2,8 +2,8 @@
   window["env"] = window["env"] || {};
 
   // BackEnd Environment variables
-  window["env"]["fineractApiUrls"] = 'https://api.fintaz.com';
-  window["env"]["fineractApiUrl"]  = 'https://api.fintaz.com';
+  window["env"]["fineractApiUrls"] = 'https://dev.fintaz.com';
+  window["env"]["fineractApiUrl"]  = 'https://dev.fintaz.com';
 
   window["env"]["apiProvider"] = '/fineract-provider/api';
   window["env"]["apiVersion"]  = '/v1';

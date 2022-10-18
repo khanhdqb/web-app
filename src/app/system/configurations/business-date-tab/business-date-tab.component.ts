@@ -77,7 +77,7 @@ export class BusinessDateTabComponent implements OnInit {
     .subscribe((configurationData: any) => {
       this.isBusinessDateEnabled = configurationData.enabled;
       if (this.isBusinessDateEnabled) {
-        this.setBusinessDates();
+        // this.setBusinessDates();
       }
     });
   }
