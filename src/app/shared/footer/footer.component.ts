@@ -74,7 +74,7 @@ export class FooterComponent implements OnInit, OnDestroy {
         this.isBusinessDateEnabled = configurationData.enabled;
         this.settingsService.setBusinessDateConfig(configurationData.enabled);
         if (this.isBusinessDateEnabled) {
-          this.setBusinessDate();
+          // this.setBusinessDate();
           this.timer = setTimeout(() => { this.getConfigurations(); }, 60000);
         }
       });

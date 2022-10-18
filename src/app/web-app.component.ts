@@ -158,7 +158,7 @@ export class WebAppComponent implements OnInit {
   }
 
   help() {
-    window.open('https://mifosforge.jira.com/wiki/spaces/docs/pages/52035622/User+Manual', '_blank');
+    window.open('https://dev.fintaz.com', '_blank');
   }
 
   // Monitor all keyboard events and excute keyboard shortcuts
